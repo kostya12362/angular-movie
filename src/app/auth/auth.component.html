@@ -1,0 +1,36 @@
+<div class="container" id="container">
+  <div class="content-form">
+    <div  class="form-container log-in-container">
+      <form [formGroup]="authForm"  (ngSubmit)="saveForm()">
+  <h1 *ngIf="!registerMode" (click)="registerMode = true">Registration</h1>
+  <h1 *ngIf="registerMode" (click)="registerMode = false">Auth</h1>
+        <div class="social-container">
+          <a href="#" class="social"><i class="fa fa-facebook fa-2x"></i></a>
+          <a href="#" class="social"><i class="fab fa fa-twitter fa-2x"></i></a>
+          <a href="#" class="social"><i class="fa fa-google fa-2x"></i></a>
+        </div>
+        <input type="text" formControlName="username" placeholder="Username">
+        <input type="password" formControlName="password" placeholder="Password">
+        <button type="submit">
+          <span *ngIf="!registerMode">SignUp</span>
+          <span *ngIf="registerMode">LogIn</span>
+        </button>
+      </form>
+    </div>
+
+
+    <div id="goSign" class="overlay-container-sign">
+			<div class="overlay-sign">
+				<div class="overlay-panel-sign overlay-right">
+
+            <button  *ngIf="!registerMode" (click)="registerMode = true">LogIn</button>
+            <button  *ngIf="registerMode" (click)="registerMode = false">SignIn</button>
+
+        </div>
+			</div>
+		</div>
+  <span *ngIf="!registerMode" (click)="registerMode = true">Don't have an account ? Register here.</span>
+  <span *ngIf="registerMode" (click)="registerMode = false">Already have an account ? Register here.</span>
+
+    </div>
+</div>
